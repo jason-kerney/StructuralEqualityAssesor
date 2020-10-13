@@ -2,7 +2,7 @@
 A .Net core library to asseses if structural equality has been properly implemented in a namespace. 
 
 ## Thanks
-[EDF-RE](https://github.com/edf-re) For giving me time to create and maintain this.
+[EDF-RE](https://github.com/edf-re) : For giving me time to create and maintain this.
 
 ## Example
 
