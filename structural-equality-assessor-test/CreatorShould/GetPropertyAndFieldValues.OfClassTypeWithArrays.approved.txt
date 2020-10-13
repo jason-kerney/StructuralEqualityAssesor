@@ -1,0 +1,3 @@
+results[0] = Int32[] Numbers => { Populated: [1], Empty: [[], null] }
+results[1] = StructuralEqualityAssessor.Test.Examples.SomeComplexClass[] Classes => { Populated: [{ Thing: { SomeNumber: 1 }, Thing2: { ANumber: 1 }, aString: "A string", aChar: 'A' }], Empty: [[], null] }
+results[2] = Int32[] otherNumbers => { Populated: [1], Empty: [[], null] }

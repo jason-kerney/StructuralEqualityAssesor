@@ -1,0 +1,1 @@
+{ Numbers: [1], Classes: [{ Thing: { SomeNumber: 1 }, Thing2: { ANumber: 1 }, aString: "A string", aChar: 'A' }], otherNumbers: [1] }

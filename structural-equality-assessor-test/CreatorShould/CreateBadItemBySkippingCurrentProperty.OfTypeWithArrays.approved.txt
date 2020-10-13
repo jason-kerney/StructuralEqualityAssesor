@@ -1,0 +1,2 @@
+result[0] = { Numbers: [1], Classes: [], otherNumbers: [1] }
+result[1] = { Numbers: [1], Classes: null, otherNumbers: [1] }

@@ -1,0 +1,1 @@
+result[0] = { someByte: 0, someChar: 'A', SomeNumber: 1, SomeString: "A string" }

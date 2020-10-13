@@ -1,0 +1,2 @@
+result[0] = Int32 SomeNumber => { Populated: 1, Empty: [0] }
+result[1] = System.String SomeString => { Populated: "A string", Empty: [null] }

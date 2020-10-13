@@ -1,0 +1,1 @@
+{ Thing: null, Thing2: null, aString: "A string", aChar: 'A' }
