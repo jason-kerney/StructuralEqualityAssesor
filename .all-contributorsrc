@@ -9,6 +9,25 @@
   "imageSize": 100,
   "commit": false,
   "commitConvention": "none",
-  "contributors": [],
+  "contributors": [
+    {
+      "login": "cmstead",
+      "name": "Chris Stead",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/4184510?v=4",
+      "profile": "http://www.chrisstead.net/",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "edf-re",
+      "name": "EDF Renewables",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/13739273?v=4",
+      "profile": "https://github.com/edf-re",
+      "contributions": [
+        "financial"
+      ]
+    }
+  ],
   "contributorsPerLine": 7
 }
