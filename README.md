@@ -4,6 +4,11 @@ A .Net core library to asseses if structural equality has been properly implemen
 ## Thanks
 [EDF-RE](https://github.com/edf-re) : For giving me time to create and maintain this.
 
+## Known Issues:
+
+1. Does not handle dynamic types or types that have dynamic properties or fields.
+1. Does not handle generic types.
+
 ## Example
 
 ```csharp
