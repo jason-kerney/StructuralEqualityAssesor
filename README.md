@@ -1,6 +1,9 @@
 # StructuralEqualityAssesor
 A .Net core library to asseses if structural equality has been properly implemented in a namespace.
 
+![CodeQL](https://github.com/jason-kerney/StructuralEqualityAssesor/workflows/CodeQL/badge.svg)
+![.NET Core](https://github.com/jason-kerney/StructuralEqualityAssesor/workflows/.NET%20Core/badge.svg)
+
 ## Known Issues:
 
 1. Does not handle dynamic types or types that have dynamic properties or fields.
