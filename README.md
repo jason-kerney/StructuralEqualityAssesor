@@ -1,10 +1,10 @@
-# StructuralEqualityAssesor
-A .Net core library to asseses if structural equality has been properly implemented in a namespace.
-
 ![CodeQL](https://github.com/jason-kerney/StructuralEqualityAssesor/workflows/CodeQL/badge.svg)
 ![.NET Core](https://github.com/jason-kerney/StructuralEqualityAssesor/workflows/.NET%20Core/badge.svg)
 [![License](https://img.shields.io/github/license/jason-kerney/StructuralEqualityAssesor)](https://github.com/jason-kerney/StructuralEqualityAssesor/blob/main/LICENSE)
 [![Nuget](https://img.shields.io/nuget/v/StructuralEqualityAssessor.svg)](https://www.nuget.org/packages/StructuralEqualityAssessor/)
+
+# StructuralEqualityAssesor
+A .Net core library to asseses if structural equality has been properly implemented in a namespace.
 
 ## Known Issues:
 
