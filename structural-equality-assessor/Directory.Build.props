@@ -5,6 +5,5 @@
     <InformationalVersion>1.1.1</InformationalVersion>
     <Authors>R. Jason Kerney, EDF Renewables</Authors>
     <description>A .Net core library to asseses if structural equality has been properly implemented in a namespace.</description>
-    <license type="expression">MIT</license>
   </PropertyGroup>
 </Project>
