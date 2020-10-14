@@ -1,0 +1,14 @@
+{
+  "projectName": "StructuralEqualityAssesor",
+  "projectOwner": "R. Jason Kerney",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "none",
+  "contributors": [],
+  "contributorsPerLine": 7
+}
