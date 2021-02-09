@@ -32,7 +32,9 @@ namespace StructuralEqualityAssessor.Test
         [Fact]
         public void IgnoreAllIgnoredTypes()
         {
-            var result = FindSiblingsThatAreMissingStructural.Equality<ReferenceGoodClass>();
+            var ignoreThese = new[] {typeof(DynamicProperty)};
+            
+            var result = FindSiblingsThatAreMissingStructural.Equality<ReferenceGoodClass>(ignoreThese);
             Assert.Empty(result);
         }
 
