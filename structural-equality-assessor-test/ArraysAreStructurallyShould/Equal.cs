@@ -1,5 +1,7 @@
 ﻿using StructuralEqualityAssessor.EqualityHelpers;
 using StructuralEqualityAssessor.Test.Examples;
+using StructuralEqualityAssessor.Test.Examples.LookUpFailingClasses;
+using StructuralEqualityAssessor.Test.Examples.LookUpGoodClasses;
 using Xunit;
 
 namespace StructuralEqualityAssessor.Test.ArraysAreStructurallyShould
@@ -83,8 +85,8 @@ namespace StructuralEqualityAssessor.Test.ArraysAreStructurallyShould
         [Fact]
         public void ReturnFalseForArraysContainingBasicObjects()
         {
-            var left = new[] {new OtherClass(), new OtherClass(), new OtherClass(), };
-            var right = new[] {new OtherClass(), new OtherClass(), new OtherClass(), };
+            var left = new[] {new AnotherClass(), new AnotherClass(), new AnotherClass(), };
+            var right = new[] {new AnotherClass(), new AnotherClass(), new AnotherClass(), };
 
             var result = ArraysAreStructurally.Equal(left, right);
 
@@ -94,9 +96,9 @@ namespace StructuralEqualityAssessor.Test.ArraysAreStructurallyShould
         [Fact]
         public void ReturnTrueForArraysContainingSameBasicObjects()
         {
-            var a = new OtherClass();
-            var b = new OtherClass();
-            var c = new OtherClass();
+            var a = new AnotherClass();
+            var b = new AnotherClass();
+            var c = new AnotherClass();
             var left = new[] {a, b, c, };
             var right = new[] {a, b, c, };
 

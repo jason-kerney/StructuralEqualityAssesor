@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using StructuralEqualityAssessor.Internal;
 using StructuralEqualityAssessor.Test.Examples;
+using StructuralEqualityAssessor.Test.Examples.LookUpFailingClasses;
+using StructuralEqualityAssessor.Test.Examples.LookUpMixedClasses;
 using Xunit;
 
 namespace StructuralEqualityAssessor.Test.CreatorShould
@@ -271,7 +273,7 @@ namespace StructuralEqualityAssessor.Test.CreatorShould
         [Fact]
         public void OfTypeAClass()
         {
-            var result = (OtherClass) typeof(OtherClass).CreateInstanceOfType();
+            var result = (AnotherClass) typeof(AnotherClass).CreateInstanceOfType();
 
             Assert.Equal(0, result.SomeNumber);
             Assert.Null(result.SomeString);

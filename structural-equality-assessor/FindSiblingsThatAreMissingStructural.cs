@@ -29,13 +29,20 @@ namespace StructuralEqualityAssessor
                 constructors
                 ?? new Dictionary<Type, Func<object>>();
 
-            return
+            var toBeChecked =
                 from 
                     t in tType.Assembly.GetTypes()
                 where
                     t.Namespace == nspace
                     && !filters.Contains(t)
-                    && !HasStructural.Equality(t, ctors)
+                    && !t.IsAbstract
+                    && !t.IsInterface
+                    && t.IsPublic
+                select t;
+
+            return
+                from t in toBeChecked
+                where !HasStructural.Equality(t, ctors)
                 select t;
         }
     }

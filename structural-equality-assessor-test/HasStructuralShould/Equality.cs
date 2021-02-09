@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using StructuralEqualityAssessor.Test.Examples;
+using StructuralEqualityAssessor.Test.Examples.LookUpFailingClasses;
+using StructuralEqualityAssessor.Test.Examples.LookUpGoodClasses;
+using StructuralEqualityAssessor.Test.Examples.LookUpMixedClasses;
 using Xunit;
 
 namespace StructuralEqualityAssessor.Test.HasStructuralShould
@@ -10,7 +13,7 @@ namespace StructuralEqualityAssessor.Test.HasStructuralShould
         [Fact]
         public void BeFalseForBasicType()
         {
-            var result = HasStructural.Equality(typeof(OtherClass));
+            var result = HasStructural.Equality(typeof(AnotherClass));
 
             Assert.False(result);
         }
@@ -28,10 +31,10 @@ namespace StructuralEqualityAssessor.Test.HasStructuralShould
         {
             var ctors = new Dictionary<Type, Func<object>>
             {
-                {typeof(OtherClass), () => new OtherClass{SomeNumber = 11, SomeString = "12", someChar = (char)13, someByte = 14}}
+                {typeof(AnotherClass), () => new AnotherClass{SomeNumber = 11, SomeString = "12", someChar = (char)13, someByte = 14}}
             };
 
-            var result = HasStructural.Equality(typeof(OtherClass), ctors);
+            var result = HasStructural.Equality(typeof(AnotherClass), ctors);
 
             Assert.False(result);
         }

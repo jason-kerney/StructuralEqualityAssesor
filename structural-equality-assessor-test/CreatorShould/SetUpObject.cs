@@ -4,6 +4,9 @@ using ApprovalTests;
 using ApprovalTests.Reporters;
 using StructuralEqualityAssessor.Internal;
 using StructuralEqualityAssessor.Test.Examples;
+using StructuralEqualityAssessor.Test.Examples.LookUpFailingClasses;
+using StructuralEqualityAssessor.Test.Examples.LookUpGoodClasses;
+using StructuralEqualityAssessor.Test.Examples.LookUpMixedClasses;
 using Xunit;
 
 namespace StructuralEqualityAssessor.Test.CreatorShould
@@ -36,19 +39,19 @@ namespace StructuralEqualityAssessor.Test.CreatorShould
             [Fact]
             public void OfClass()
             {
-                var target = (object)new OtherClass();
+                var target = (object)new AnotherClass();
 
-                Assert.Equal(0, ((OtherClass) target).SomeNumber);
-                Assert.Null(((OtherClass) target).SomeString);
-                Assert.Equal((byte)0, ((OtherClass) target).someByte);
-                Assert.Equal('\0', ((OtherClass) target).someChar);
+                Assert.Equal(0, ((AnotherClass) target).SomeNumber);
+                Assert.Null(((AnotherClass) target).SomeString);
+                Assert.Equal((byte)0, ((AnotherClass) target).someByte);
+                Assert.Equal('\0', ((AnotherClass) target).someChar);
 
                 Creator.SetUpObject(ref target, null);
 
-                Assert.Equal(1, ((OtherClass) target).SomeNumber);
-                Assert.Equal("A string", ((OtherClass) target).SomeString);
-                Assert.Equal((byte)1, ((OtherClass) target).someByte);
-                Assert.Equal('A', ((OtherClass) target).someChar);
+                Assert.Equal(1, ((AnotherClass) target).SomeNumber);
+                Assert.Equal("A string", ((AnotherClass) target).SomeString);
+                Assert.Equal((byte)1, ((AnotherClass) target).someByte);
+                Assert.Equal('A', ((AnotherClass) target).someChar);
             }
 
             [Fact]

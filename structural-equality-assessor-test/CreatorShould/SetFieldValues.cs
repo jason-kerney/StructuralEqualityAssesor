@@ -5,6 +5,8 @@ using ApprovalTests;
 using ApprovalTests.Reporters;
 using StructuralEqualityAssessor.Internal;
 using StructuralEqualityAssessor.Test.Examples;
+using StructuralEqualityAssessor.Test.Examples.LookUpFailingClasses;
+using StructuralEqualityAssessor.Test.Examples.LookUpMixedClasses;
 using Xunit;
 
 namespace StructuralEqualityAssessor.Test.CreatorShould
@@ -15,12 +17,12 @@ namespace StructuralEqualityAssessor.Test.CreatorShould
         [Fact]
         public void OnMultipleObjects()
         {
-            var a = new OtherClass();
-            var b = new OtherClass();
-            var c = new OtherClass();
+            var a = new AnotherClass();
+            var b = new AnotherClass();
+            var c = new AnotherClass();
 
             var targets = new[] {a, b,};
-            var (_, fieldValues) = Creator.GetPropertyAndFieldValues(typeof(OtherClass), null);
+            var (_, fieldValues) = Creator.GetPropertyAndFieldValues(typeof(AnotherClass), null);
             Action<FieldInfo, object> noOp = (f, v) => { };
             Creator.SetFieldValues(targets, fieldValues, noOp);
 
@@ -31,11 +33,11 @@ namespace StructuralEqualityAssessor.Test.CreatorShould
         [Fact]
         public void OnMultipleObjectsAndCallsDelegateOnEachField()
         {
-            var a = new OtherClass();
+            var a = new AnotherClass();
             var fields = new List<string>();
 
             var targets = new[] {a,};
-            var (_, fieldValues) = Creator.GetPropertyAndFieldValues(typeof(OtherClass), null);
+            var (_, fieldValues) = Creator.GetPropertyAndFieldValues(typeof(AnotherClass), null);
             Action<FieldInfo, ValueAccessors> noOp = (field, value) => { fields.Add($"{field} => {value}"); };
             Creator.SetFieldValues(targets, fieldValues, noOp);
 
@@ -62,9 +64,9 @@ namespace StructuralEqualityAssessor.Test.CreatorShould
         [Fact]
         public void OnSingleTarget()
         {
-            var target = new OtherClass();
+            var target = new AnotherClass();
 
-            var (_, fieldValues) = Creator.GetPropertyAndFieldValues(typeof(OtherClass), null);
+            var (_, fieldValues) = Creator.GetPropertyAndFieldValues(typeof(AnotherClass), null);
             Creator.SetFieldValues(target, fieldValues);
 
             Approvals.Verify(target.ToString());

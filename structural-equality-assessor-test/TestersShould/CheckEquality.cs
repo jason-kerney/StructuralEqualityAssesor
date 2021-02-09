@@ -1,5 +1,7 @@
 ﻿using StructuralEqualityAssessor.Internal;
 using StructuralEqualityAssessor.Test.Examples;
+using StructuralEqualityAssessor.Test.Examples.LookUpFailingClasses;
+using StructuralEqualityAssessor.Test.Examples.LookUpGoodClasses;
 using Xunit;
 
 namespace StructuralEqualityAssessor.Test.TestersShould
@@ -9,8 +11,8 @@ namespace StructuralEqualityAssessor.Test.TestersShould
         [Fact]
         public void AndReturnsFalseForDefaultObjectEvenIfStructurallyEqual()
         {
-            object left = new OtherClass{ SomeNumber = 5, SomeString = "High-Low", someByte = 24, someChar = 'Z'};
-            object right = new OtherClass{ SomeNumber = 5, SomeString = "High-Low", someByte = 24, someChar = 'Z'};
+            object left = new AnotherClass{ SomeNumber = 5, SomeString = "High-Low", someByte = 24, someChar = 'Z'};
+            object right = new AnotherClass{ SomeNumber = 5, SomeString = "High-Low", someByte = 24, someChar = 'Z'};
             var result = Testers.CheckEquality(left, right);
 
             Assert.False(result);
@@ -19,7 +21,7 @@ namespace StructuralEqualityAssessor.Test.TestersShould
         [Fact]
         public void AndReturnsTrueForForTheSameBasicObject()
         {
-            object thing = new OtherClass { SomeNumber = 5};
+            object thing = new AnotherClass { SomeNumber = 5};
             var result = Testers.CheckEquality(thing, thing);
 
             Assert.True(result);

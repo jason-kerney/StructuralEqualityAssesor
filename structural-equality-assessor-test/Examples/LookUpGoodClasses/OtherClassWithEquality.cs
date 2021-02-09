@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StructuralEqualityAssessor.Test.Examples
+namespace StructuralEqualityAssessor.Test.Examples.LookUpGoodClasses
 {
     public class OtherClassWithEquality : IEquatable<OtherClassWithEquality>
     {

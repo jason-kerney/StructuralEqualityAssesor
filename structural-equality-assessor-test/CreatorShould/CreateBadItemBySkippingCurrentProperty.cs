@@ -5,6 +5,8 @@ using ApprovalTests;
 using ApprovalTests.Reporters;
 using StructuralEqualityAssessor.Internal;
 using StructuralEqualityAssessor.Test.Examples;
+using StructuralEqualityAssessor.Test.Examples.LookUpFailingClasses;
+using StructuralEqualityAssessor.Test.Examples.LookUpGoodClasses;
 using Xunit;
 
 namespace StructuralEqualityAssessor.Test.CreatorShould
@@ -15,8 +17,8 @@ namespace StructuralEqualityAssessor.Test.CreatorShould
         [Fact]
         public void OfType()
         {
-            Func<object> ctor = () => new OtherClass();
-            var (propertyValues, fieldValues) = Creator.GetPropertyAndFieldValues(typeof(OtherClass), null);
+            Func<object> ctor = () => new AnotherClass();
+            var (propertyValues, fieldValues) = Creator.GetPropertyAndFieldValues(typeof(AnotherClass), null);
             var result = Creator.CreateBadItemBasedOnProperty(ctor, propertyValues, fieldValues, propertyValues.First().Key);
 
             Approvals.VerifyAll(result, "result");
@@ -25,8 +27,8 @@ namespace StructuralEqualityAssessor.Test.CreatorShould
         [Fact]
         public void OfTypeWithDifferentProperty()
         {
-            Func<object> ctor = () => new OtherClass();
-            var (propertyValues, fieldValues) = Creator.GetPropertyAndFieldValues(typeof(OtherClass), null);
+            Func<object> ctor = () => new AnotherClass();
+            var (propertyValues, fieldValues) = Creator.GetPropertyAndFieldValues(typeof(AnotherClass), null);
             var result = Creator.CreateBadItemBasedOnProperty(ctor, propertyValues, fieldValues, propertyValues.Last().Key);
 
             Approvals.VerifyAll(result, "result");

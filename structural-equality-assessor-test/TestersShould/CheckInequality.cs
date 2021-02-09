@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using StructuralEqualityAssessor.Internal;
 using StructuralEqualityAssessor.Test.Examples;
+using StructuralEqualityAssessor.Test.Examples.LookUpFailingClasses;
+using StructuralEqualityAssessor.Test.Examples.LookUpGoodClasses;
 using Xunit;
 
 namespace StructuralEqualityAssessor.Test.TestersShould
@@ -12,11 +14,11 @@ namespace StructuralEqualityAssessor.Test.TestersShould
         {
             IEnumerable<object> others = new []
             {
-                new OtherClass{ someChar = 'T', someByte = 32, SomeNumber = 42, SomeString = "String"},
-                new OtherClass{ someChar = 'T', someByte = 32, SomeNumber = 42, SomeString = "String"},
-                new OtherClass{ someChar = 'T', someByte = 32, SomeNumber = 42, SomeString = "String"},
+                new AnotherClass{ someChar = 'T', someByte = 32, SomeNumber = 42, SomeString = "String"},
+                new AnotherClass{ someChar = 'T', someByte = 32, SomeNumber = 42, SomeString = "String"},
+                new AnotherClass{ someChar = 'T', someByte = 32, SomeNumber = 42, SomeString = "String"},
             };
-            object populatedItem = new OtherClass{ someChar = 'T', someByte = 32, SomeNumber = 42, SomeString = "String"};
+            object populatedItem = new AnotherClass{ someChar = 'T', someByte = 32, SomeNumber = 42, SomeString = "String"};
             var result = Testers.CheckInequality(others, populatedItem);
 
             Assert.True(result);
@@ -25,12 +27,12 @@ namespace StructuralEqualityAssessor.Test.TestersShould
         [Fact]
         public void ReturnsFalseForBasicObjectsIfOneOfThemIsThePopulatedItem()
         {
-            object populatedItem = new OtherClass{ someChar = 'T', someByte = 32, SomeNumber = 42, SomeString = "String"};
+            object populatedItem = new AnotherClass{ someChar = 'T', someByte = 32, SomeNumber = 42, SomeString = "String"};
             IEnumerable<object> others = new []
             {
-                new OtherClass{ someChar = 'T', someByte = 32, SomeNumber = 42, SomeString = "String"},
+                new AnotherClass{ someChar = 'T', someByte = 32, SomeNumber = 42, SomeString = "String"},
                 populatedItem,
-                new OtherClass{ someChar = 'T', someByte = 32, SomeNumber = 42, SomeString = "String"},
+                new AnotherClass{ someChar = 'T', someByte = 32, SomeNumber = 42, SomeString = "String"},
             };
             var result = Testers.CheckInequality(others, populatedItem);
 

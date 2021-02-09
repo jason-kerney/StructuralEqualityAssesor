@@ -1,6 +1,7 @@
 ﻿using System;
+using StructuralEqualityAssessor.Test.Examples.LookUpGoodClasses;
 
-namespace StructuralEqualityAssessor.Test.Examples
+namespace StructuralEqualityAssessor.Test.Examples.LookUpMixedClasses
 {
     public class SomeComplexClass : IEquatable<SomeComplexClass>
     {

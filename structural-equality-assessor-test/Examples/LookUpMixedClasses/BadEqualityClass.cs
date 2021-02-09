@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StructuralEqualityAssessor.Test.Examples
+namespace StructuralEqualityAssessor.Test.Examples.LookUpMixedClasses
 {
     public class BadEqualityClass : IEquatable<BadEqualityClass>
     {

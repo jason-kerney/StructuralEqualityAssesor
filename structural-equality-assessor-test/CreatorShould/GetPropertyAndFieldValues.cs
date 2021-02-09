@@ -5,6 +5,8 @@ using ApprovalTests;
 using ApprovalTests.Reporters;
 using StructuralEqualityAssessor.Internal;
 using StructuralEqualityAssessor.Test.Examples;
+using StructuralEqualityAssessor.Test.Examples.LookUpFailingClasses;
+using StructuralEqualityAssessor.Test.Examples.LookUpGoodClasses;
 using Xunit;
 
 namespace StructuralEqualityAssessor.Test.CreatorShould
@@ -27,7 +29,7 @@ namespace StructuralEqualityAssessor.Test.CreatorShould
         [Fact]
         public void OfClassType()
         {
-            var (propertyValuesFromType, fieldValuesFromType) = Creator.GetPropertyAndFieldValues(typeof(OtherClass), null);
+            var (propertyValuesFromType, fieldValuesFromType) = Creator.GetPropertyAndFieldValues(typeof(AnotherClass), null);
 
             var valueStrings = propertyValuesFromType.Select(kvp => $"{kvp.Key} => {kvp.Value}").ToList();
 
@@ -41,7 +43,7 @@ namespace StructuralEqualityAssessor.Test.CreatorShould
         {
             var ctors = new Dictionary<Type, Func<object>>
             {
-                {typeof(NonDefaultConstructor), () => new NonDefaultConstructor(33)}
+                {typeof(NonDefaultConstructor), () => new NonDefaultConstructor(33)},
             };
             var (propertyValuesFromType, fieldValuesFromType) = Creator.GetPropertyAndFieldValues(typeof(HasArrays), ctors);
 

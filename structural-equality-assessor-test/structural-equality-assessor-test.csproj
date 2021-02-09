@@ -28,4 +28,10 @@
     <ProjectReference Include="..\structural-equality-assessor\structural-equality-assessor.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="FindSiblingsThatAreMissingStructuralShould.OnlyReportFailingTypesIfMixed.approved.txt">
+      <DependentUpon>FindSiblingsThatAreMissingStructuralShould.cs</DependentUpon>
+    </None>
+  </ItemGroup>
+
 </Project>

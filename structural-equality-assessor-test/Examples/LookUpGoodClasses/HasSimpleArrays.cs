@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Linq;
 using StructuralEqualityAssessor.EqualityHelpers;
-using StructuralEqualityAssessor.Test.Examples.LookUpMixedClasses;
 
-namespace StructuralEqualityAssessor.Test.Examples
+// ReSharper disable NonReadonlyMemberInGetHashCode
+
+namespace StructuralEqualityAssessor.Test.Examples.LookUpGoodClasses
 {
-    public class HasArrays : IEquatable<HasArrays>
+    public class HasSimpleArrays : IEquatable<HasSimpleArrays>
     {
-        public bool Equals(HasArrays other)
+        public bool Equals(HasSimpleArrays other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return 
-                ArraysAreStructurally.Equal(otherNumbers, other.otherNumbers) 
-                && ArraysAreStructurally.Equal(Numbers, other.Numbers) 
-                && ArraysAreStructurally.Equal(Classes, other.Classes);
+            return
+                ArraysAreStructurally.Equal(otherNumbers, other.otherNumbers)
+                && ArraysAreStructurally.Equal(Numbers, other.Numbers);
         }
 
         public override bool Equals(object obj)
@@ -22,29 +22,27 @@ namespace StructuralEqualityAssessor.Test.Examples
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
-            return Equals((HasArrays) obj);
+            return Equals((HasSimpleArrays) obj);
         }
 
         public override int GetHashCode()
         {
             var otherNumbersHashCodes = otherNumbers?.Aggregate(HashCode.Combine) ?? 0;
             var numbersHashCode = Numbers?.Aggregate(HashCode.Combine) ?? 0;
-            var classesHashCode = Classes?.Aggregate(0, HashCode.Combine) ?? 0;
-            return HashCode.Combine(otherNumbersHashCodes, numbersHashCode, classesHashCode);
+            return HashCode.Combine(otherNumbersHashCodes, numbersHashCode);
         }
 
-        public static bool operator ==(HasArrays left, HasArrays right)
+        public static bool operator ==(HasSimpleArrays left, HasSimpleArrays right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(HasArrays left, HasArrays right)
+        public static bool operator !=(HasSimpleArrays left, HasSimpleArrays right)
         {
             return !Equals(left, right);
         }
 
         public int[] Numbers { get; set; }
-        public SomeComplexClass[] Classes { get; set; }
         public int[] otherNumbers;
 
         public override string ToString()
@@ -57,7 +55,7 @@ namespace StructuralEqualityAssessor.Test.Examples
                         : $"[{string.Join(", ", array)}]";
             }
 
-            return $"{{ {nameof(Numbers)}: {ArrayToString(Numbers)}, {nameof(Classes)}: {ArrayToString(Classes)}, {nameof(otherNumbers)}: {ArrayToString(otherNumbers)} }}";
+            return $"{{ {nameof(Numbers)}: {ArrayToString(Numbers)}, {nameof(otherNumbers)}: {ArrayToString(otherNumbers)} }}";
         }
     }
 }

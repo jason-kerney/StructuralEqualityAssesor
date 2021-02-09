@@ -1,5 +1,7 @@
 ﻿using StructuralEqualityAssessor.Internal;
 using StructuralEqualityAssessor.Test.Examples;
+using StructuralEqualityAssessor.Test.Examples.LookUpFailingClasses;
+using StructuralEqualityAssessor.Test.Examples.LookUpGoodClasses;
 using Xunit;
 
 namespace StructuralEqualityAssessor.Test.TestersShould
@@ -9,7 +11,7 @@ namespace StructuralEqualityAssessor.Test.TestersShould
         [Fact]
         public void ReturnsTrueForDefaultClass()
         {
-            object target = new OtherClass();
+            object target = new AnotherClass();
             var result = Testers.CheckNullInequality(target);
 
             Assert.True(result);

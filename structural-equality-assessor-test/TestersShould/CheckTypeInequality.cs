@@ -1,5 +1,7 @@
 ﻿using StructuralEqualityAssessor.Internal;
 using StructuralEqualityAssessor.Test.Examples;
+using StructuralEqualityAssessor.Test.Examples.LookUpFailingClasses;
+using StructuralEqualityAssessor.Test.Examples.LookUpMixedClasses;
 using Xunit;
 
 namespace StructuralEqualityAssessor.Test.TestersShould
@@ -9,8 +11,8 @@ namespace StructuralEqualityAssessor.Test.TestersShould
         [Fact]
         public void AndReturnTrueForBasicObjects()
         {
-            object target = new OtherClass();
-            var result = Testers.CheckTypeInequality(typeof(OtherClass), target);
+            object target = new AnotherClass();
+            var result = Testers.CheckTypeInequality(typeof(AnotherClass), target);
 
             Assert.True(result);
         }

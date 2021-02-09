@@ -1,0 +1,2 @@
+Bad Equality[0] = StructuralEqualityAssessor.Test.Examples.LookUpFailingClasses.AnotherClass
+Bad Equality[1] = StructuralEqualityAssessor.Test.Examples.LookUpFailingClasses.SecondBadEqualityClass

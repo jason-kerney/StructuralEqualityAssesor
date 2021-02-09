@@ -5,6 +5,8 @@ using ApprovalTests;
 using ApprovalTests.Reporters;
 using StructuralEqualityAssessor.Internal;
 using StructuralEqualityAssessor.Test.Examples;
+using StructuralEqualityAssessor.Test.Examples.LookUpFailingClasses;
+using StructuralEqualityAssessor.Test.Examples.LookUpMixedClasses;
 using Xunit;
 
 namespace StructuralEqualityAssessor.Test.CreatorShould
@@ -15,12 +17,12 @@ namespace StructuralEqualityAssessor.Test.CreatorShould
         [Fact]
         public void OnMultipleObjects()
         {
-            var a = new OtherClass();
-            var b = new OtherClass();
-            var c = new OtherClass();
+            var a = new AnotherClass();
+            var b = new AnotherClass();
+            var c = new AnotherClass();
 
             var targets = new[] {a, b};
-            var (propertyValues, _) = Creator.GetPropertyAndFieldValues(typeof(OtherClass), null);
+            var (propertyValues, _) = Creator.GetPropertyAndFieldValues(typeof(AnotherClass), null);
             Action<PropertyInfo, object> noOp = (p, v) => { };
 
             Creator.SetPropertyValues(targets, propertyValues, noOp);
@@ -32,11 +34,11 @@ namespace StructuralEqualityAssessor.Test.CreatorShould
         [Fact]
         public void OnMultipleObjectsAndExecutesDelegateOnEachProperty()
         {
-            var a = new OtherClass();
+            var a = new AnotherClass();
             var properties = new List<string>();
 
             var targets = new[] {a};
-            var (propertyValues, _) = Creator.GetPropertyAndFieldValues(typeof(OtherClass), null);
+            var (propertyValues, _) = Creator.GetPropertyAndFieldValues(typeof(AnotherClass), null);
             Action<PropertyInfo, ValueAccessors> collect = (property, value) => properties.Add($"{property} => {value}");
 
             Creator.SetPropertyValues(targets, propertyValues, collect);
@@ -64,8 +66,8 @@ namespace StructuralEqualityAssessor.Test.CreatorShould
         [Fact]
         public void OnSingleObject()
         {
-            var target = new OtherClass();
-            var (propertyValues, _) = Creator.GetPropertyAndFieldValues(typeof(OtherClass), null);
+            var target = new AnotherClass();
+            var (propertyValues, _) = Creator.GetPropertyAndFieldValues(typeof(AnotherClass), null);
             Creator.SetPropertyValues(target, propertyValues);
 
             Approvals.Verify(target.ToString());
