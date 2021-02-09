@@ -1,8 +1,8 @@
 ﻿<Project>
   <PropertyGroup>
-    <VersionPrefix>1.1.2</VersionPrefix>
-    <FileVersion>1.1.2</FileVersion>
-    <InformationalVersion>1.1.1</InformationalVersion>
+    <VersionPrefix>1.2.0</VersionPrefix>
+    <FileVersion>1.2.0</FileVersion>
+    <InformationalVersion>1.2.0</InformationalVersion>
     <Authors>R. Jason Kerney, EDF Renewables</Authors>
     <description>A .Net core library to asseses if structural equality has been properly implemented in a namespace.</description>
   </PropertyGroup>
